@@ -1,4 +1,4 @@
-export const  configMenu = {
+export const configMenu = {
     configColor: {
     background:'#f4f5fa', // Color de Fondo General de la botonera
     itemBackground: '#d0d0d0',// Color de Fondo de los subMenús

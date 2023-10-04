@@ -1,47 +1,31 @@
-import React, { Component } from 'react'
-import Submenu from './SubMenu'
+import React, { useState } from 'react';
+import SubMenu from './SubMenu';
 
-class Menu extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      openSubmenuId: null
-    }
-  }
+const Menu = ({ data }) => {
+  const [activeMenuItem, setActiveMenuItem] = useState(null);
+  const [openSubMenus, setOpenSubMenus] = useState([]);
 
-  toggleSubmenu = (id) => {
-    this.setState((prevState) => ({
-      openSubmenuId: prevState.openSubmenuId === id ? null : id
-    }))
-  }
+  const handleMenuItemClick = (id) => {
+    const updatedOpenSubMenus = openSubMenus.includes(id)
+      ? openSubMenus.filter((menuId) => menuId !== id)
+      : [...openSubMenus, id];
 
-  render() {
-    const { data } = this.props
-    const { openSubmenuId } = this.state
+    setOpenSubMenus(updatedOpenSubMenus);
+    setActiveMenuItem(id);
+  };
 
-    return (
-      <nav>
-        <ul style={{ background: data.configColor.background }}>
-          {data.menuItems.map((menuItem) => (
-            <li key={menuItem.id}>
-              {menuItem.isFolder ? (
-                <div onClick={() => this.toggleSubmenu(menuItem.id)} style={{background: openSubmenuId === menuItem.id ? data.configColor.itemActive : data.configColor.itemBackground,color: data.configColor.itemColor}}>
-                  {menuItem.name}
-                </div>
-                ) : (
-                <div style={{background: data.configColor.background, color: data.configColor.itemColor}}>
-                  {menuItem.name}
-                </div>
-              )}
-              {menuItem.isFolder && openSubmenuId === menuItem.id && (
-                <Submenu submenuItems={data.menuItems.filter((subMenuItem) => subMenuItem.idPadre === menuItem.id)} configColor={data.configColor}/>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
-    )
-  }
-}
+  return (
+    <div style={{ background: data.configColor.background }} className='nav'>
+      <SubMenu
+        menuItems={data.menuItems}
+        idFirstNivel={data.idFirstNivel}
+        activeMenuItem={activeMenuItem}
+        openSubMenus={openSubMenus}
+        handleMenuItemClick={handleMenuItemClick}
+        data={data} // Pasa data como propiedad a SubMenu
+      />
+    </div>
+  );
+};
 
-export default Menu
+export default Menu;
