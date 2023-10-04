@@ -17,8 +17,8 @@ class DrawClass extends Component{
         ));
         
         //Definir alturas
-        const rectAttributeHeight = attributes.length > 2 ? attributes.length * 40 : 100; // 100 es el valor mínimo por defecto
-        const rectMethodsHeight = methods.length > 2 ? methods.length * 40 : 40; // 40 es el valor mínimo por defecto
+        const rectAttributeHeight = attributes.length > 1 ? attributes.length * 40 : 40; // 100 es el valor mínimo por defecto
+        const rectMethodsHeight = methods.length > 1 ? methods.length * 40 : 40;// 40 es el valor mínimo por defecto
         const methodsTextY = rectAttributeHeight - 5 
         const totalHeight = rectAttributeHeight + rectMethodsHeight + 30
 

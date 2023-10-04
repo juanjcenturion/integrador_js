@@ -6,4 +6,3 @@ export const CLASS_UML = {
     headColor: '#DC2DDE',
     textColor: '#333333',
   };
-  
