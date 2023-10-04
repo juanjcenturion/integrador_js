@@ -21,7 +21,6 @@ class DrawClass extends Component{
         const rectMethodsHeight = methods.length > 1 ? methods.length * 40 : 40;// 40 es el valor mínimo por defecto
         const methodsTextY = rectAttributeHeight - 5 
         const totalHeight = rectAttributeHeight + rectMethodsHeight + 30
-
         const maxWordLength = Math.max(
             name.split(' ').reduce((max, word) => Math.max(max, word.length), 0),
             ...attributes.map(attr => attr.split(' ').reduce((max, word) => Math.max(max, word.length), 0)),

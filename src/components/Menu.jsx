@@ -1,69 +1,47 @@
-import React, { useState } from 'react';
-import "./Menu.css"
+import React, { Component } from 'react'
+import Submenu from './SubMenu'
 
-const Menu = ({ data }) => {
-  const [activeMenuItem, setActiveMenuItem] = useState(null);
-  const [openSubMenus, setOpenSubMenus] = useState([]);
-
-  const handleMenuItemClick = (id) => {
-    if (openSubMenus.includes(id)) {
-      // Si el submenú ya está abierto, ciérralo
-      setOpenSubMenus(openSubMenus.filter((menuId) => menuId !== id));
-    } else {
-      // Si el submenú no está abierto, ábrelo
-      setOpenSubMenus([...openSubMenus, id]);
+class Menu extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      openSubmenuId: null
     }
-    setActiveMenuItem(id);
-  };
+  }
 
-  const renderMenuItem = (menuItem) => {
-    const isActive = activeMenuItem === menuItem.id;
+  toggleSubmenu = (id) => {
+    this.setState((prevState) => ({
+      openSubmenuId: prevState.openSubmenuId === id ? null : id
+    }))
+  }
 
-    const itemStyle = {
-      background: isActive ? data.configColor.itemActive : data.configColor.itemBackground,
-      color: data.configColor.itemColor,
-      padding: 10,
-      cursor: "pointer"
-    };
-
-    const arrow = menuItem.isFolder ? (openSubMenus.includes(menuItem.id) ? 'v' : '  >') : null;
+  render() {
+    const { data } = this.props
+    const { openSubmenuId } = this.state
 
     return (
-      <div
-        key={menuItem.id}
-        style={itemStyle}
-        className='itemstyle'
-        onClick={() => handleMenuItemClick(menuItem.id)}
-      >
-        <p>{menuItem.name} {arrow}</p>
-      </div>
-    );
-  };
-
-  const renderSubMenu = (menuItems, parentId) => {
-    return (
-      <div className='menu-box'>
-        {menuItems
-          .filter((item) => item.idPadre === parentId)
-          .map((item) => (
-            <div key={item.id} className='submenu-item'>
-              {renderMenuItem(item)}
-              {item.isFolder && openSubMenus.includes(item.id) && (
-                <div>
-                  {renderSubMenu(menuItems, item.id)}
+      <nav>
+        <ul style={{ background: data.configColor.background }}>
+          {data.menuItems.map((menuItem) => (
+            <li key={menuItem.id}>
+              {menuItem.isFolder ? (
+                <div onClick={() => this.toggleSubmenu(menuItem.id)} style={{background: openSubmenuId === menuItem.id ? data.configColor.itemActive : data.configColor.itemBackground,color: data.configColor.itemColor}}>
+                  {menuItem.name}
+                </div>
+                ) : (
+                <div style={{background: data.configColor.background, color: data.configColor.itemColor}}>
+                  {menuItem.name}
                 </div>
               )}
-            </div>
+              {menuItem.isFolder && openSubmenuId === menuItem.id && (
+                <Submenu submenuItems={data.menuItems.filter((subMenuItem) => subMenuItem.idPadre === menuItem.id)} configColor={data.configColor}/>
+              )}
+            </li>
           ))}
-      </div>
-    );
-  };
+        </ul>
+      </nav>
+    )
+  }
+}
 
-  return (
-    <div style={{ background: data.configColor.background }} className='nav'>
-      <div>{renderSubMenu(data.menuItems, data.idFirstNivel)}</div>
-    </div>
-  );
-};
-
-export default Menu;
+export default Menu
