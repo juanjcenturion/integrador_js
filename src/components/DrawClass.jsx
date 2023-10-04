@@ -52,9 +52,13 @@ class DrawClass extends Component{
                 {/* Texto para los atributos */}
                     <text x="0" y="20" fill={textColor}>
                         {attributeText}
-                    </text>    
+                    </text>
                 {/* Rectangulo para metodos */}
                     <rect x="0" y={rectAttributeHeight} width={widthValue} height={rectMethodsHeight} fill="white" stroke={borderColor} />
+                
+                {/* Línea superior del rectángulo de métodos en negro */}
+                    <line x1="0" y1={rectAttributeHeight} x2={widthValue} y2={rectAttributeHeight} stroke="black" strokeWidth="2" />
+
                 {/* Texto para los metodos */}
                     <text x="0" y={methodsTextY} fill={textColor}>
                         {methodsText}
