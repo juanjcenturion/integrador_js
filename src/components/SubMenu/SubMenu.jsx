@@ -46,7 +46,11 @@ function SubMenu({ menuItems, idFirstNivel, activeMenuItem, openSubMenus, handle
           .map((item) => (
             <div key={item.id}>
               {renderMenuItem(item)}
-              {item.isFolder && openSubMenus.includes(item.id)}
+              {item.isFolder && openSubMenus.includes(item.id) && (
+                <div className='submenu'>
+                  {renderSubMenu(menuItems, item.id)}
+                </div>
+              )}
             </div>
           ))}
       </ul>
