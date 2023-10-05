@@ -9,10 +9,10 @@ import { CLASS_UML } from "./classUML";
 function App() {
   return (
     <div>
-        <Menu data={configMenu} />
-        <section className="Uml-section">
-          <DrawClass data= {CLASS_UML} />
-        </section>
+      <Menu data={configMenu} />
+      <section className="Uml-section">
+        <DrawClass data={CLASS_UML} />
+      </section>
 
     </div>
   )
