@@ -33,7 +33,7 @@ function SubMenu({ menuItems, idFirstNivel, activeMenuItem, openSubMenus, handle
         className={itemClassName}
         onClick={() => handleMenuItemClick(menuItem.id)}
       >
-        {menuItem.name} {arrow}
+      <p>{menuItem.name} {arrow}</p>
       </a>
     );
   }
@@ -47,9 +47,8 @@ function SubMenu({ menuItems, idFirstNivel, activeMenuItem, openSubMenus, handle
             <div key={item.id}>
               {renderMenuItem(item)}
               {item.isFolder && openSubMenus.includes(item.id) && (
-                <div className='submenu'>
-                  {renderSubMenu(menuItems, item.id)}
-                </div>
+                
+                renderSubMenu(menuItems, item.id)
               )}
             </div>
           ))}

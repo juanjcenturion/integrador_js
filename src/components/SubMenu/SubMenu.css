@@ -10,33 +10,33 @@
     border-radius: 15px;
     text-align: center;
   }
+.nivel-1-item p{
+  text-align: center;
+  margin-top: 5px;
+}
 
-  .submenu{
-    position: relative;
-    display: flex; /* Usamos flexbox para centrar vertical y horizontalmente */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    border-radius: 15px;
-    width: 10%;
-    right: 204px;
-    top: 70px;
-  }
-  .nivel-2-item {
+  
+.nivel-2-item {
     position: relative;
     display: block;
-    top: -20px;
-    height: 80px;
+    top: 54px;
+    left: 134px;
+    height: 60px;
     width: 9rem;
     border-left: none;
     border-bottom: 1px dotted #fff;
     text-align: center;
+    align-items: center;
     text-decoration: none;
   }
+
+
+  
   .nivel-3-item {
     position: relative;
     display: block;
-    left: 300px;
-    top: -20px;
+    left: 258px;
+    top: -47px;
     height: 80px;
     width: 9rem;
     border-left: none;
