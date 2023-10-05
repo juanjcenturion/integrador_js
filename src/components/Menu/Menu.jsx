@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import SubMenu from "../SubMenu/SubMenu";
-import "./Menu.css";
+import React, { useState } from 'react'
+import SubMenu from '../SubMenu/SubMenu'
+import "./Menu.css"
 
 function Menu({ data }) {
-  const [activeMenuItem, setActiveMenuItem] = useState(null);
-  const [openSubMenus, setOpenSubMenus] = useState([]);
+  const [activeMenuItem, setActiveMenuItem] = useState(null)
+  const [openSubMenus, setOpenSubMenus] = useState([])
 
-  function handleMenuItemClick(id) {
+  const handleMenuItemClick = (id) => {
     const updatedOpenSubMenus = openSubMenus.includes(id)
       ? openSubMenus.filter((menuId) => menuId !== id)
       : openSubMenus.concat(id);
 
-    setOpenSubMenus(updatedOpenSubMenus);
-    setActiveMenuItem(id);
+    setOpenSubMenus(updatedOpenSubMenus)
+    setActiveMenuItem(id)
   }
 
   return (
-    <nav style={{ background: data.configColor.background }} className="nav">
-      <ul className="menu-list">
+    <nav style={{ background: data.configColor.background }} className='nav'>
+      <ul className='menuList'>
         <SubMenu
           menuItems={data.menuItems}
           idFirstNivel={data.idFirstNivel}
@@ -31,4 +31,6 @@ function Menu({ data }) {
   );
 }
 
-export default Menu;
+export default Menu
+
+

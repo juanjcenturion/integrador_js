@@ -1,17 +1,17 @@
 .nav {
-    position: fixed;
-    width: 98%;
-    max-width: 1900px;
-    top: 10px;
-    height: 60px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    left: 50%;
-    transform: translate(-50%);
+  position: fixed;
+  width: 98%;
+  max-width: 1900px;
+  top: 10px;
+  height: 60px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
-.menu-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.menuList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

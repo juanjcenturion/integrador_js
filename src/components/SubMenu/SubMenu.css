@@ -1,4 +1,4 @@
-.nivel-1-item {
+.nivel1Item {
   float: left;
   position: relative;
   height: 40px;
@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-.nivel-1-item p {
+.nivel2Item p {
   text-align: center;
   margin-top: 10px;
 }
@@ -24,7 +24,7 @@
   left: 10px;
 }
 
-.nivel-2-item {
+.nivel2Item {
   position: relative;
   display: block;
   top: 60px;
@@ -38,7 +38,7 @@
   text-decoration: none;
 }
 
-.nivel-2-item p {
+.nivel2Item p {
   width: 150px;
   position: absolute;
   top: 20%;
@@ -46,15 +46,15 @@
   transform: translate(-50%, -50%);
 }
 
-.nivel-2-item .flecha .arrow-down {
+.nivel2Item .flecha .arrowDown {
   transform: rotate(90deg);
 }
 
-.nivel-2-item .flecha .arrow-right {
+.nivel2Item .flecha .arrowRight {
   transform: rotate(-90deg);
 }
 
-.nivel-3-item {
+.nivel3Item {
   position: relative;
   display: block;
   left: 258px;
@@ -67,7 +67,7 @@
   text-decoration: none;
 }
 
-.nivel-3-item p {
+.nivel3Item p {
   width: 150px;
   position: absolute;
   top: 20%;

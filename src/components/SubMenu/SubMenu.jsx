@@ -1,20 +1,11 @@
 import React from "react";
 import "./SubMenu.css";
 
-function SubMenu({
-  menuItems,
-  idFirstNivel,
-  activeMenuItem,
-  openSubMenus,
-  handleMenuItemClick,
-  data,
-}) {
-  function renderMenuItem(menuItem) {
+function SubMenu({ menuItems, idFirstNivel, activeMenuItem, openSubMenus, handleMenuItemClick, data }) {
+  const renderMenuItem = (menuItem) => {
     const isActive = activeMenuItem === menuItem.id;
     const itemStyle = {
-      background: isActive
-        ? data.configColor.itemActive
-        : data.configColor.itemBackground,
+      background: isActive ? data.configColor.itemActive : data.configColor.itemBackground,
       color: data.configColor.itemColor,
       padding: 10,
       cursor: "pointer",
@@ -31,11 +22,11 @@ function SubMenu({
     });
     let itemClassName = "";
     if (nivel1Items.includes(menuItem)) {
-      itemClassName = "nivel-1-item";
+      itemClassName = "nivel1Item";
     } else if (nivel2Items.includes(menuItem)) {
-      itemClassName = "nivel-2-item";
+      itemClassName = "nivel2Item";
     } else if (nivel3Items.includes(menuItem)) {
-      itemClassName = "nivel-3-item";
+      itemClassName = "nivel3Item";
     }
 
     const arrow = menuItem.isFolder ? (
@@ -45,7 +36,7 @@ function SubMenu({
           width="16"
           height="16"
           fill="currentColor"
-          className="arrow-right"
+          className="arrowRight"
           viewBox="0 0 16 16"
         >
           <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
@@ -55,7 +46,7 @@ function SubMenu({
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          className="arrow-down"
+          className="arrowDown"
           fill="currentColor"
           viewBox="0 0 16 16"
         >
@@ -78,9 +69,9 @@ function SubMenu({
         </p>
       </a>
     );
-  }
+  };
 
-  function renderSubMenu(menuItems, parentId) {
+  const renderSubMenu = (menuItems, parentId) => {
     return (
       <ul>
         {menuItems
@@ -95,7 +86,7 @@ function SubMenu({
           ))}
       </ul>
     );
-  }
+  };
 
   return <div>{renderSubMenu(menuItems, idFirstNivel)}</div>;
 }
