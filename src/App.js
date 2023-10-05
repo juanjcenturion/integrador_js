@@ -1,6 +1,6 @@
 import React from "react";
-import DrawClass from "./components/DrawClass";
-import Menu from "./components/Menu";
+import DrawClass from "./components/DrawClass/DrawClass";
+import Menu from "./components/Menu/Menu";
 import { configMenu } from "./configMenu";
 import { CLASS_UML } from "./classUML";
 
@@ -9,10 +9,11 @@ import { CLASS_UML } from "./classUML";
 function App() {
   return (
     <div>
-        <header className="nav-menu">
-          <DrawClass data= {CLASS_UML} />
-        </header>
         <Menu data={configMenu} />
+        <section className="Uml-section">
+          <DrawClass data= {CLASS_UML} />
+        </section>
+
     </div>
   )
 }

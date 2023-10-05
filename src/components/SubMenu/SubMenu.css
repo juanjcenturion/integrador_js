@@ -1,0 +1,49 @@
+.nivel-1-item {
+    float:left;
+    position: relative;
+    height: 30px;
+    width: 9rem;
+    top:15px;
+    margin-right: 10px; /* Espacio entre elementos de primer nivel */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los elementos de primer nivel */
+    text-decoration: none; /* Elimina subrayado de los elementos de primer nivel */
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  .submenu{
+    position: relative;
+    display: flex; /* Usamos flexbox para centrar vertical y horizontalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    border-radius: 15px;
+    width: 10%;
+    right: 204px;
+    top: 70px;
+  }
+  .nivel-2-item {
+    position: relative;
+    display: block;
+    top: -20px;
+    height: 80px;
+    width: 9rem;
+    border-left: none;
+    border-bottom: 1px dotted #fff;
+    text-align: center;
+    text-decoration: none;
+  }
+  .nivel-3-item {
+    position: relative;
+    display: block;
+    left: 300px;
+    top: -20px;
+    height: 80px;
+    width: 9rem;
+    border-left: none;
+    border-bottom: 1px dotted #fff;
+    text-align: center;
+    text-decoration: none;
+  }
+
+
+
